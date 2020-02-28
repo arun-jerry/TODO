@@ -53,7 +53,6 @@ body {
 }
 
 .item-list .task-box {
-	width: 69%;
 	border: 1px solid #fff;
 }
 
@@ -86,4 +85,12 @@ body {
 
 #completed-items-list li .task-box:not(:focus) {
 	text-decoration: line-through;
+}
+
+.hide {
+	display: none;
+}
+
+.item-list .task-box.editing {
+    border: 1px solid #3a88fd;
 }

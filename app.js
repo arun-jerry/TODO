@@ -88,3 +88,12 @@ function deleteTask(id) {
 	var complted = true;
 	showTask(complted);
 }
+
+function openEdit(id, event) {
+	if(event.type == 'click') {
+		document.querySelector("#"+id).classList.add('editing');
+		document.querySelector("#"+id).nextElementSibling.classList.remove('hide');
+		document.querySelector("#"+id).nextElementSibling.nextElementSibling.classList.add('hide');
+	}
+}
+	
