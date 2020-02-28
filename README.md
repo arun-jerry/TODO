@@ -1,4 +1,5 @@
 # TODO
+To see the app, download and open the index.html file
 
 #### IMPROVEMENTS DONE!
 The edit buttons seems a little misleading to the user. The user won't know if he should click on the edit button to edit it or rather click the text to edit then save the text.
