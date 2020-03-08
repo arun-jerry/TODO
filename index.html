@@ -13,7 +13,7 @@
 			<legend class="title">Add Item</legend>
 			<div class="flex-container">
 				<input class="task-box" id="task-field" type="text" name="task-field">	
-				<button id="add-task-btn" class="btn" type="submit">add</button>
+				<button id="add-task-btn" class="btn" onclick="newTodoList.addTask(newTodoList)" type="button">add</button>
 			</div>
 		</form>
 
@@ -23,11 +23,12 @@
 				<script id="listing-template" type="text/x-handlebars-template"> 
 					{{#each tasks}}
 						<li class="flex-container">
-							<input onclick="checkTask({{id}})" type="checkbox" id="complete-task-{{id}}" class="complete-task" name={{name}}
+							<input onclick="newTodoList.todoItems.find((task) => task.id === {{id}} ).toggleCheck(newTodoList)" type="checkbox" id="complete-task-{{id}}" class="complete-task" name={{name}}
 							{{#if checked }} checked {{/if}}>
 							<input class="edit-task task-box" type="text" name="task-field" id="task-value-{{id}}" value="{{name}}" onclick="openEdit('task-value-{{id}}', event)">	
-							<button class="btn hide" id="edit-btn" type="submit" onclick="updateTask({{id}}, 'task-value-{{id}}')">save</button>
-							<button class="btn" id="delete-btn" type="submit" onclick="deleteTask({{id}})">delete</button>
+							<button class="btn hide" id="edit-btn" type="submit"
+							onclick="newTodoList.todoItems.find((task) => task.id === {{id}} ).updateTask({{id}}, 'task-value-{{id}}', newTodoList)">save</button>
+							<button class="btn" id="delete-btn" type="submit" onclick="newTodoList.deleteTask({{id}}, newTodoList)">delete</button>
 						</li>
 					{{/each}} 
 				</script>
@@ -41,7 +42,7 @@
 				<script id="listing-template" type="text/x-handlebars-template"> 
 					{{#each tasks}}
 						<li class="flex-container">
-							<input onclick="checkTask({{id}})" type="checkbox" id="complete-task-{{id}}" class="complete-task" name={{name}}
+							<input onclick="newTodoList.todoItems.find((task) => task.id === {{id}} ).toggleCheck(newTodoList)" type="checkbox" id="complete-task-{{id}}" class="complete-task" name={{name}}
 							{{#if checked }} checked {{/if}}>
 							<input class="edit-task task-box" type="text" name="task-field" id="task-value-{{id}}" value="{{name}}" onclick="openEdit('task-value-{{id}}', event)">	
 							<button class="btn hide" id="edit-btn" type="submit" onclick="updateTask({{id}}, 'task-value-{{id}}')">save</button>
@@ -55,6 +56,9 @@
 			</div>
 		</div>
 	</div>
-</body>
+</body onload=>
 </html>
 <script src="app.js"></script>
+
+
+<div id="testItem"></div>
